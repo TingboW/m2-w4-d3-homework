@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Food Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    <aside id="leftside"></aside>
+    <aside id="rightside"></aside>
+    <div id="container">     
+      <!-- <span>Food Blog</span> --> 
+    <header id="component1" style="padding-bottom:50px;">
+        <mycomponent1></mycomponent1>
+    </header>
+
+    <main>
+    <aside id="photos">
+        <img v-bind:src="source"
+             alt="White Chicken Chili"
+             width="180">
+    </aside>
+    <div id="component2">
+        <mycomponent2></mycomponent2>
+    </div>
+
+    <div id="nav">
+        <section class="container">
+            <nav class="area">
+                <a v-for="item in nav"  class="target">{{item.title}}</a>
+            </nav>
+        </section>
+    </div>
+
+    <section id="blogposts">
+        <ul>
+            <li v-for="(c, i) in comments"
+                style="list-style:none; border-style:groove; margin-right: 50px; margin-bottom: 20px; padding: 10px;">
+                <img v-bind:src="c.profile" height="60" width="60" v-on:click="showProfile(i)"> 
+                     {{ c.name }} — {{ c.time }} {{ c.action }} 
+                     <div v-html="c.comment"> 
+                </div>
+            </li>
+        </ul>
+    </section>
+    
+ <div id="overlay" style="display:none">
+        <div id="text">
+        </div>
+        <button onclick="modalOff()"
+                class="close">Close</button>
+    </div>
+
+    </main>
+
+    <footer>
+        <br>
+        &copy; Copyright FOOD BLOG
+    </footer>
+    
+</div>
+
+<script src="vue.js"></script>
+<!-- Bootstrap jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap Popper -->
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
